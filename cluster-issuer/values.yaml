@@ -5,6 +5,6 @@ acme:
     server: "https://acme-v02.api.letsencrypt.org/directory"
 ingress:
     class: nginx
-    serviceType: ClusterIp
+    serviceType: ClusterIP
     annotations: 
         "kubernetes.io/ingress.class": "istio"
