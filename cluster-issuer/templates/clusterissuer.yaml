@@ -14,3 +14,10 @@ spec:
       - http01:
           ingress:
             class: {{ .Values.ingress.class }}
+            serviceType: {{ .Values.ingress.serviceType }}
+            ingressTemplate:
+              metadata:
+                annotations:
+                  {{- range $key, $value := .Values.ingress.annotations }}
+                  {{ $key }}: {{ $value | quote }}
+                  {{- end }}
