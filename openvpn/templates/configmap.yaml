@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "openvpn-chart.fullname" . }}
+  labels:
+    {{- include "openvpn-chart.labels" . | nindent 4 }}
+data:
+  client: "allanger admin"
