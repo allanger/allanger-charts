@@ -1,0 +1,10 @@
+acme:
+    # Email for ACME provider to contact you in case of any problems.
+    email: ""
+    # Server of ACME provider (default to production Lets Encrypt.)
+    server: "https://acme-v02.api.letsencrypt.org/directory"
+ingress:
+    class: istio
+    serviceType: ClusterIP
+    annotations: 
+        "kubernetes.io/ingress.class": "istio"

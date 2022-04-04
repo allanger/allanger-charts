@@ -1,0 +1,111 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "openvpn-chart.fullname" . }}
+  labels:
+    {{- include "openvpn-chart.labels" . | nindent 4 }}
+spec:
+  {{- if not .Values.autoscaling.enabled }}
+  replicas: {{ .Values.replicaCount }}
+  {{- end }}
+  selector:
+    matchLabels:
+      {{- include "openvpn-chart.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      {{- with .Values.podAnnotations }}
+      annotations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      labels:
+        {{- include "openvpn-chart.selectorLabels" . | nindent 8 }}
+    spec:
+      {{- with .Values.imagePullSecrets }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      volumes:
+        - name: pvc-openvpn
+          persistentVolumeClaim:
+            claimName: {{ include "openvpn-chart.fullname" . }}
+      securityContext:
+          sysctls:
+            - name: net.ipv4.ip_forward
+              value: "1"
+      containers:
+        - name: {{ .Chart.Name }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          ports:
+            - name: openvpn
+              containerPort: 1194
+              protocol: UDP
+          resources:
+            {{- toYaml .Values.resources | nindent 12 }}
+          volumeMounts:
+            - mountPath: "/etc/openvpn"
+              name: pvc-openvpn
+          env:
+          - name: OVPN_SERVER
+            value: 10.1.149.0/24              
+          securityContext:
+            capabilities:
+              add:
+                - NET_ADMIN
+      initContainers:
+        - name: ovpn-genconfig
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          volumeMounts:
+            - mountPath: "/etc/openvpn"
+              name: pvc-openvpn
+          env:
+            - name: OVPN_SERVER_URL
+              value: "91.232.225.64"
+            - name: OVPN_DATA
+              value: "/etc/openvpn" 
+          command: 
+            - sh
+            - -c 
+            - 'if [ -z "$(ls -A /etc/openvpn)" ]; then ovpn_genconfig -u $OVPN_SERVER_URL; fi'
+        - name: ovpn-initpki
+          env:
+            - name: OVPN_DATA
+              value: /etc/openvpn
+            - name: EASYRSA_REQ_COUNTRY
+              value: DE
+            - name: EASYRSA_REQ_PROVINCE
+              value: Berlin
+            - name: EASYRSA_REQ_CITY
+              value: Berlin
+            - name: EASYRSA_REQ_ORG
+              value: allanger
+            - name: EASYRSA_REQ_EMAIL
+              value: allanger@zohomail.com
+            - name: EASYRSA_REQ_OU
+              value: Community
+            - name: EASYRSA_ALGO
+              value: ec
+            - name: EASYRSA_DIGEST
+              value: sha512              
+            - name: EASYRSA_BATCH
+              value: "yes"          
+          volumeMounts:
+            - mountPath: "/etc/openvpn"
+              name: pvc-openvpn
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          command: 
+            - sh
+            - -c
+            - 'if [ -z "$(ls -A /etc/openvpn/pki)" ]; then ovpn_initpki nopass; fi'
+      {{- with .Values.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.affinity }}
+      affinity:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
