@@ -1,0 +1,58 @@
+gateways: 
+  - metadata:
+      name: badhouseplants-net
+      namespace: istio-system
+    spec:
+      selector:
+        istio: ingressgateway
+      servers: 
+        - port:
+            number: 80
+            name: http
+            protocol: HTTP
+          hosts:
+            - badhouseplants.net
+            - '*.badhouseplants.net'
+        - port: 
+            number: 443
+            name: https
+            protocol: HTTPS
+          tls:
+            mode: SIMPLE
+            credentialName: badhouseplants-wildcard-tls
+          hosts:
+            - badhouseplants.net
+            - '*.badhouseplants.net'
+
+virtual_services:
+  - metadata: 
+      name: minio-virtual-service
+      namespace: minio
+    spec: 
+      hosts:
+        - "minio.badhouseplants.net"
+      gateways:
+        - istio-system/badhouseplants-net
+      http:
+        - match:
+            - uri:
+                prefix: /
+          route:
+            - destination:
+                host: minio
+                port:
+                  number: 9001
+
+certificates:
+  - metadata:
+      name: badhouseplants-wildcard
+      namespace: istio-system
+    spec:
+      secretName: badhouseplants-wildcard-tls
+      dnsNames:
+        - badhouseplants.net
+        - '*.badhouseplants.net'
+      issuerRef:
+        name: cluster-issuer-acme-cluster-issuer
+        kind: ClusterIssuer
+    

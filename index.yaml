@@ -1,0 +1,46 @@
+apiVersion: v1
+entries:
+  acme-cluster-issuer:
+  - apiVersion: v2
+    created: "2022-04-15T14:33:58.665707+02:00"
+    description: A Helm chart for ACME cluster-issuer
+    digest: 53b1206e79c7b9e22540ffa111dc9c27d881a95edd94d7c2c1401302ed272830
+    name: acme-cluster-issuer
+    type: application
+    urls:
+    - https://allanger.github.io/allanger-charts/acme-cluster-issuer-0.0.1.tgz
+    version: 0.0.1
+  istio-resources:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2022-04-15T14:33:58.666204+02:00"
+    description: A Helm chart for Kubernetes
+    digest: f8aaccafac11b957e4c9bfd5a76b1494e5254ad084e47bd98f8f2a5bcbd5572c
+    name: istio-resources
+    type: application
+    urls:
+    - https://allanger.github.io/allanger-charts/istio-resources-0.1.0.tgz
+    version: 0.1.0
+  openvpn:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2022-04-15T14:33:58.666866+02:00"
+    description: A Helm chart for Kubernetes
+    digest: 04f24a59d94c4978ff9d0a5a9e2d3f9c6ae366cdd5f9b5ce119484cd005a2a72
+    name: openvpn
+    type: application
+    urls:
+    - https://allanger.github.io/allanger-charts/openvpn-0.1.0.tgz
+    version: 0.1.0
+  web-static:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2022-04-15T14:33:58.667447+02:00"
+    description: A Helm chart for Kubernetes
+    digest: 0d9c4b16b3b4793fbd507d024c884da14a1bf7dbdbee1600c3660a48f7c7c4ab
+    name: web-static
+    type: application
+    urls:
+    - https://allanger.github.io/allanger-charts/web-static-0.1.1.tgz
+    version: 0.1.1
+generated: "2022-04-15T14:33:58.6651+02:00"
