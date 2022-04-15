@@ -12,6 +12,17 @@ entries:
     version: 0.0.1
   istio-resources:
   - apiVersion: v2
+    appVersion: 1.13.0
+    created: "2022-04-15T15:11:24.029697853Z"
+    description: This is just way to deploy istio custom resources and a certificate
+      with helm.
+    digest: f1ad2db29f4fbc8767af0fcdf9ab240ed8ca2acb81f51df9d4b19e60c9752d5b
+    name: istio-resources
+    type: application
+    urls:
+    - https://github.com/allanger/allanger-charts/releases/download/istio-resources-0.1.1/istio-resources-0.1.1.tgz
+    version: 0.1.1
+  - apiVersion: v2
     appVersion: 1.16.0
     created: "2022-04-15T12:40:31.772121703Z"
     description: A Helm chart for Kubernetes
@@ -43,4 +54,4 @@ entries:
     urls:
     - https://github.com/allanger/allanger-charts/releases/download/web-static-0.1.1/web-static-0.1.1.tgz
     version: 0.1.1
-generated: "2022-04-15T12:40:32.047103389Z"
+generated: "2022-04-15T15:11:24.029706853Z"
