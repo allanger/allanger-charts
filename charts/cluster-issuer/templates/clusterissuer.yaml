@@ -11,6 +11,7 @@ spec:
     privateKeySecretRef:
       name: {{ include "acme-cluster-issuer.fullname" . }}-account-key
     solvers:
+    {{- if .Values.solvers.http01 }}
       - http01:
           ingress:
             class: {{ .Values.ingress.class }}
@@ -21,3 +22,16 @@ spec:
                   {{- range $key, $value := .Values.ingress.annotations }}
                   {{ $key }}: {{ $value | quote }}
                   {{- end }}
+    {{- end }}
+    {{- if .Values.solvers.dns01}}
+      - dns01:
+        {{- if .Values.solvers.dns01.cloudflare.enabled }}
+        {{ with  .Values.solvers.dns01.cloudflare }}
+          cloudflare: 
+            email: {{ .email }}
+            apiTokenSecretRef:
+              name: {{ $.Values.secret.name }}
+              key: value
+        {{- end }}
+        {{- end }}
+    {{- end }}

@@ -1,8 +1,16 @@
 acme:
-    # Email for ACME provider to contact you in case of any problems.
-    email: ""
-    # Server of ACME provider (default to production Lets Encrypt.)
-    server: "https://acme-v02.api.letsencrypt.org/directory"
+  email: ""
+  server: "https://acme-v02.api.letsencrypt.org/directory"
+secret: 
+  enabled: true
+  name: cloudflare-secret
+  value: cloudflare-secret-you-know
+solvers:
+  htto01: {}
+  dns01: 
+    cloudflare:
+      enabled: true
+      email: your-email@you.know
 ingress:
     class: istio
     serviceType: ClusterIP
