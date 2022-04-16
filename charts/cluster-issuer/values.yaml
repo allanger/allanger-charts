@@ -3,6 +3,7 @@ acme:
   server: "https://acme-v02.api.letsencrypt.org/directory"
 secret: 
   enabled: true
+  namespace: default
   name: cloudflare-secret
   value: cloudflare-secret-you-know
 solvers:
