@@ -1,0 +1,21 @@
+{{- if .Values.virtual_service.enabled }}
+apiVersion: networking.istio.io/v1beta1
+kind: VirtualService
+metadata:
+  labels:
+    {{- include "openvpn-chart.labels" . | nindent 4 }}
+  name: {{ include "openvpn-chart.fullname" . }}
+spec:
+  gateways:
+  - {{ .Values.virtualservices.gateway }}
+  hosts:
+  - {{ .Values.virtualservices.host }}
+  tcp:
+  - match:
+    - port: {{ .Values.virtualservices.match_port }}
+    route:
+    - destination:
+        host: {{ include "openvpn-chart.fullname" . }}
+        port:
+          number: {{ .Values.service.port }}
+{{- end }}
