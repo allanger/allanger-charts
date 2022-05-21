@@ -60,7 +60,7 @@ spec:
               name: pvc-openvpn
           env:
             - name: OVPN_SERVER_URL
-              value: "91.232.225.64"
+              value: "{{ .Values.openvpn.server }}"
             - name: OVPN_DATA
               value: "/etc/openvpn" 
           command: 

@@ -1,7 +1,8 @@
 # Default values for openvpn-chart.
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
-
+openvpn:
+  server: 127.0.0.1
 replicaCount: 1
 
 image:
