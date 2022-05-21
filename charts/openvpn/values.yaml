@@ -5,6 +5,8 @@ openvpn:
   server: 127.0.0.1
 virtual_service:
   enabled: false
+ingress:
+  enabled: false
 replicaCount: 1
 
 image:
