@@ -51,7 +51,7 @@ spec:
               name: pvc-openvpn
           env:
           - name: OVPN_SERVER
-            value: 10.1.149.0/24             
+            value: "{{ .Values.openvpn.server }}"
           securityContext:
             capabilities:
               add:
