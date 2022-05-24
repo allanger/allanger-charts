@@ -40,6 +40,10 @@ spec:
             - name: openvpn
               containerPort: 1194
               protocol: UDP
+            - name: openvpn-tcp
+              containerPort: 443
+              protocol: TCP
+
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
           volumeMounts:
@@ -48,10 +52,6 @@ spec:
           env:
           - name: OVPN_SERVER
             value: 10.1.149.0/24             
-          {{- if .Values.openvpn.args }}
-          args: 
-{{ toYaml .Values.openvpn.args | indent 10}}
-          {{- end }}
           securityContext:
             capabilities:
               add:

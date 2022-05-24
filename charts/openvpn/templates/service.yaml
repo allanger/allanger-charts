@@ -11,8 +11,8 @@ spec:
       {{- if .Values.service.nodePort }}
       nodePort: {{ int .Values.service.nodePort }}
       {{- end}}
-      targetPort: 1194
-      protocol: UDP
+      targetPort: {{ .Values.service.port | default 1194 }}
+      protocol: {{ .Values.service.protocol | default "UDP" | quote }}
       name: openvpn
   selector:
     {{- include "openvpn-chart.selectorLabels" . | nindent 4 }}
