@@ -47,7 +47,11 @@ spec:
               name: pvc-openvpn
           env:
           - name: OVPN_SERVER
-            value: 10.1.149.0/24              
+            value: 10.1.149.0/24             
+          {{- if .Values.openvpn.args }}
+          args: 
+{{ toYaml .Values.openvpn.args | indent 10}}
+          {{- end }}
           securityContext:
             capabilities:
               add:
