@@ -85,7 +85,9 @@ spec:
             - name: EASYRSA_DIGEST
               value: sha512              
             - name: EASYRSA_BATCH
-              value: "yes"          
+              value: "yes" 
+            - name: OVPN_SERVER_URL
+              value: {{ .Values.openvpn.server }}
           volumeMounts:
             - mountPath: "/etc/openvpn"
               name: pvc-openvpn
