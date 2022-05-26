@@ -36,13 +36,6 @@ spec:
         - name: {{ .Chart.Name }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
-          ports:
-            - name: openvpn
-              containerPort: 1194
-              protocol: UDP
-            - name: openvpn-tcp
-              containerPort: 443
-              protocol: TCP
 
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
