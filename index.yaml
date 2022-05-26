@@ -53,6 +53,16 @@ entries:
   openvpn:
   - apiVersion: v2
     appVersion: 1.16.0
+    created: "2022-05-26T19:56:07.222632162Z"
+    description: A Helm chart for Kubernetes
+    digest: 38217bbd62921dcdebe977c33350212b5ab7f21924146ab92cfd88ce3ba8d2ad
+    name: openvpn
+    type: application
+    urls:
+    - https://github.com/allanger/allanger-charts/releases/download/openvpn-0.1.8/openvpn-0.1.8.tgz
+    version: 0.1.8
+  - apiVersion: v2
+    appVersion: 1.16.0
     created: "2022-05-24T20:22:49.063632327Z"
     description: A Helm chart for Kubernetes
     digest: ff7b22d10979f003d0b6dcff7ceb59d511e6bf871baf9c950cb871ee1f1443ca
@@ -142,4 +152,4 @@ entries:
     urls:
     - https://github.com/allanger/allanger-charts/releases/download/web-static-0.1.1/web-static-0.1.1.tgz
     version: 0.1.1
-generated: "2022-05-24T20:22:49.063761035Z"
+generated: "2022-05-26T19:56:07.222824761Z"
