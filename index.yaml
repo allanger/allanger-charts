@@ -151,17 +151,6 @@ entries:
     urls:
     - https://github.com/allanger/allanger-charts/releases/download/openvpn-0.1.0/openvpn-0.1.0.tgz
     version: 0.1.0
-  temporary:
-  - apiVersion: v2
-    appVersion: 1.16.0
-    created: "2022-07-11T14:47:57.124680312Z"
-    description: A Helm chart for Kubernetes
-    digest: 4ef00e56a4d546e83bdca866c987c22398dfab3b6524686008b03e235bfd3557
-    name: temporary
-    type: application
-    urls:
-    - https://github.com/allanger/allanger-charts/releases/download/temporary-0.1.0/temporary-0.1.0.tgz
-    version: 0.1.0
   web-static:
   - apiVersion: v2
     appVersion: 1.16.0
