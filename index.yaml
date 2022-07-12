@@ -162,16 +162,6 @@ entries:
     urls:
     - https://github.com/allanger/allanger-charts/releases/download/temporary-0.1.2/temporary-0.1.2.tgz
     version: 0.1.2
-  - apiVersion: v2
-    appVersion: 1.16.0
-    created: "2022-07-12T09:01:44.849032572Z"
-    description: A Helm chart for Kubernetes
-    digest: 117101a990ed1734a34a9a188215884527a988baaf0e620b8d19221bc4ee9d78
-    name: temporary
-    type: application
-    urls:
-    - https://github.com/allanger/allanger-charts/releases/download/temporary-0.1.1/temporary-0.1.1.tgz
-    version: 0.1.1
   web-static:
   - apiVersion: v2
     appVersion: 1.16.0
