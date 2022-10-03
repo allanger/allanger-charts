@@ -63,7 +63,7 @@ spec:
           command: 
             - sh
             - -c 
-            - 'if [ -z "$(ls -A /etc/openvpn)" ]; then ovpn_genconfig -u $OVPN_SERVER_URL; fi'
+            - 'if [ "$(ls -A /etc/openvpn)" ]; then ovpn_genconfig -u $OVPN_SERVER_URL; fi'
         - name: ovpn-initpki
           env:
             - name: OVPN_DATA
