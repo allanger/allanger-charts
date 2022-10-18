@@ -18,7 +18,7 @@ image:
 imagePullSecrets: []
 nameOverride: ""
 fullnameOverride: ""
-storageClassName: microk8s-hostpath
+storageClassName: ""
 serviceAccount:
   # Specifies whether a service account should be created
   create: true
