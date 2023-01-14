@@ -1,6 +1,0 @@
-apiVersion: v2
-name: istio-resources
-description: This is just way to deploy istio custom resources and a certificate with helm.
-type: application
-version: 0.1.1
-appVersion: 1.13.0

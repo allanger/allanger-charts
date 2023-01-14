@@ -1,7 +1,0 @@
-{{- range .Values.virtual_services }}
----
-apiVersion: networking.istio.io/v1beta1
-kind: VirtualService
-metadata: {{ toYaml .metadata | nindent 2 }}
-spec: {{ toYaml .spec | nindent 2}}
-{{- end}}

@@ -1,7 +1,0 @@
-{{- range .Values.certificates }}
----
-apiVersion: cert-manager.io/v1
-kind: Certificate
-metadata: {{ toYaml .metadata | nindent 2 }}
-spec: {{ toYaml .spec | nindent 2 }}
-{{- end }}
