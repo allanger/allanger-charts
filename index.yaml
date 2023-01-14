@@ -192,6 +192,19 @@ entries:
     urls:
     - https://github.com/allanger/allanger-charts/releases/download/temporary-0.1.2/temporary-0.1.2.tgz
     version: 0.1.2
+  vaultwarden:
+  - apiVersion: v1
+    appVersion: 1.27.0
+    created: "2023-01-14T22:02:45.79657103Z"
+    description: A Bitwarden Helm chart for Kubernetes
+    digest: 3cff369066049eb6b0acf0b21f2b5b613c4e0d89cd4a56f9b0b6e71954b1add5
+    maintainers:
+    - email: allanger#zohomail.com
+      name: allanger
+    name: vaultwarden
+    urls:
+    - https://github.com/allanger/allanger-charts/releases/download/vaultwarden-0.1.0/vaultwarden-0.1.0.tgz
+    version: 0.1.0
   web-static:
   - apiVersion: v2
     appVersion: 1.16.0
@@ -203,4 +216,4 @@ entries:
     urls:
     - https://github.com/allanger/allanger-charts/releases/download/web-static-0.1.1/web-static-0.1.1.tgz
     version: 0.1.1
-generated: "2022-10-18T12:49:46.713086368Z"
+generated: "2023-01-14T22:02:45.796648934Z"
