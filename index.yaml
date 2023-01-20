@@ -181,6 +181,21 @@ entries:
     urls:
     - https://github.com/allanger/allanger-charts/releases/download/openvpn-0.1.0/openvpn-0.1.0.tgz
     version: 0.1.0
+  pomoday:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2023-01-20T14:46:24.914267628Z"
+    dependencies:
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: https://charts.bitnami.com/bitnami
+      version: 12.1.9
+    description: A helm chart to deploy the pomoday app
+    digest: 9de410a5ccdd3a43f1cacc4663cf7051528d1941d2a9f9f3803ebf878b297cad
+    name: pomoday
+    urls:
+    - https://github.com/allanger/allanger-charts/releases/download/pomoday-0.1.0/pomoday-0.1.0.tgz
+    version: 0.1.0
   temporary:
   - apiVersion: v2
     appVersion: 1.16.0
@@ -216,4 +231,4 @@ entries:
     urls:
     - https://github.com/allanger/allanger-charts/releases/download/web-static-0.1.1/web-static-0.1.1.tgz
     version: 0.1.1
-generated: "2023-01-14T22:02:45.796648934Z"
+generated: "2023-01-20T14:46:24.914333228Z"
