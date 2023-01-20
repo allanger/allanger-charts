@@ -25,6 +25,8 @@ jobs:
           version: v3.8.1
       - name: Helm Deps
         run: |
+          helm repo add bitnami  https://charts.bitnami.com/bitnami
+          helm repo update
           for dir in $(ls -d charts/*); do
             helm dependency update $dir;
           done
