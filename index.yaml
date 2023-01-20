@@ -184,6 +184,20 @@ entries:
   pomoday:
   - apiVersion: v2
     appVersion: 1.16.0
+    created: "2023-01-20T15:03:12.618122751Z"
+    dependencies:
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: https://charts.bitnami.com/bitnami
+      version: 12.1.9
+    description: A helm chart to deploy the pomoday app
+    digest: 409bb8f72105cb6f68560154ccba48a4213823614888188073e2b517ce07c5d6
+    name: pomoday
+    urls:
+    - https://github.com/allanger/allanger-charts/releases/download/pomoday-0.1.1/pomoday-0.1.1.tgz
+    version: 0.1.1
+  - apiVersion: v2
+    appVersion: 1.16.0
     created: "2023-01-20T14:46:24.914267628Z"
     dependencies:
     - condition: postgresql.enabled
@@ -231,4 +245,4 @@ entries:
     urls:
     - https://github.com/allanger/allanger-charts/releases/download/web-static-0.1.1/web-static-0.1.1.tgz
     version: 0.1.1
-generated: "2023-01-20T14:46:24.914333228Z"
+generated: "2023-01-20T15:03:12.618330391Z"
