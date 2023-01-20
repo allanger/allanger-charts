@@ -1,0 +1,10 @@
+apiVersion: v2
+name: pomoday
+description: A helm chart to deploy the pomoday app
+version: 0.1.0
+appVersion: "1.16.0"
+dependencies:
+- name: postgresql
+  repository: https://charts.bitnami.com/bitnami
+  version: 12.1.9
+  condition: postgresql.enabled
