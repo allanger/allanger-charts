@@ -53,6 +53,16 @@ entries:
   openvpn:
   - apiVersion: v2
     appVersion: 1.16.0
+    created: "2023-08-09T17:55:20.626585317Z"
+    description: A Helm chart for deploying OpenVPN
+    digest: 8b95f32e99440316c5e349036294a6fba0768b40200e0b5f655c2ca229ec78ea
+    name: openvpn
+    type: application
+    urls:
+    - https://github.com/allanger/allanger-charts/releases/download/openvpn-1.0.6/openvpn-1.0.6.tgz
+    version: 1.0.6
+  - apiVersion: v2
+    appVersion: 1.16.0
     created: "2023-08-09T17:46:28.202279889Z"
     description: A Helm chart for deploying OpenVPN
     digest: f6a74e88a0c42717084d7452bd1b8ec51531e3376fc13aeb8367abbda94d0cda
@@ -285,4 +295,4 @@ entries:
     urls:
     - https://github.com/allanger/allanger-charts/releases/download/web-static-0.1.1/web-static-0.1.1.tgz
     version: 0.1.1
-generated: "2023-08-09T17:46:28.20241359Z"
+generated: "2023-08-09T17:55:20.626711318Z"
