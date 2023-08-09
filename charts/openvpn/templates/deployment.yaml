@@ -63,7 +63,7 @@ spec:
           command: 
             - sh
             - -c 
-            - 'if [ $(find /etc/openvpn -maxdepth 0 -empty) ]; then ovpn_genconfig -u $OVPN_SERVER_URL; fi'
+            - 'if ! [ -d "/etc/openvpn" ]; then ovpn_genconfig -u $OVPN_SERVER_URL && touch /etc/openvpn/.init; fi'
         - name: ovpn-initpki
           env:
             - name: OVPN_DATA
@@ -95,7 +95,7 @@ spec:
           command: 
             - sh
             - -c
-            - 'if [ $(find /etc/openvpn -maxdepth 0 -empty) ]; then ovpn_initpki nopass; fi'
+            - 'if [ -f "/etc/openvpn/.init" ]; then ovpn_initpki nopass && rm -r /etc/openvpn/.init; fi'
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
