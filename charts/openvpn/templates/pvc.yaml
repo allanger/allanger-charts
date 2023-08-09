@@ -5,9 +5,9 @@ metadata:
   labels:
     {{- include "openvpn-chart.labels" . | nindent 4 }}
 spec:
-  storageClassName: {{ .Values.storageClassName }}
+  storageClassName: {{ .Values.storage.class }}
   accessModes:
     - ReadWriteOnce
   resources:
     requests:
-      storage: 5Gi
+      storage: {{ .Values.storage.size }}

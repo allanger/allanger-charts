@@ -2,6 +2,6 @@ apiVersion: v2
 name: openvpn
 description: A Helm chart for deploying OpenVPN
 type: application
-version: 1.0.4
+version: 1.0.5
 # This version may not be the actual one, I've just run `openvpn --version` in my fresh container
 appVersion: "1.16.0"
