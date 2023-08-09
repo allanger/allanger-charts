@@ -63,7 +63,7 @@ spec:
           command: 
             - sh
             - -c 
-            - 'if ! [ -d "/etc/openvpn" ]; then ovpn_genconfig -u $OVPN_SERVER_URL && touch /etc/openvpn/.init; fi'
+            - 'if ! [ -f "/etc/openvpn/ovpn_env.sh" ]; then ovpn_genconfig -u $OVPN_SERVER_URL && touch /etc/openvpn/.init; fi'
         - name: ovpn-initpki
           env:
             - name: OVPN_DATA
